@@ -4,14 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
-  <!-- 1. 初始化 Vercel Analytics 队列 -->
+  
+  <!-- 1. 加载 Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FVZR9N23Z"></script>
   <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // 配置你的 GA4 衡量 ID
+    gtag('config', 'G-4FVZR9N23Z'); 
   </script>
-  <!-- 2. 加载 Vercel Analytics 脚本 -->
-  <script defer src="/_vercel/insights/script.js"></script>
+
   <style>
-    /* 隐藏所有内容，保持纯白背景（你可以改成 #0f1115 来匹配你的暗色主题） */
+    /* 隐藏所有内容，保持纯白背景 */
     html, body {
       margin: 0;
       padding: 0;
@@ -23,15 +28,17 @@
 </head>
 <body>
   <script>
-    // 3. 记录自定义事件（静默记录，用户无感知）
-    if (window.va) {
-      window.va('event', { name: 'redirect_to_feishu' });
-    }
-    
-    // 4. 稍微延迟后立即跳转，确保分析请求发出
+    // 2. 发送一个自定义事件，方便在 GA4 中单独追踪“跳转”行为
+    // 即使页面立即跳转，这个事件也会在浏览器卸载前发送出去
+    gtag('event', 'redirect_to_feishu', {
+      'event_category': 'engagement',
+      'event_label': 'Works Page Redirect'
+    });
+
+    // 3. 延迟跳转，确保 GA4 请求发出
     setTimeout(function() {
       window.location.replace("https://my.feishu.cn/wiki/WV8VwyiuWiu9bykEI4Tcwp0tnRh");
-    }, 200); // 200ms 极短延迟，用户几乎感觉不到停顿
+    }, 200); // 300ms 延迟，通常足够 GA4 脚本发出请求
   </script>
 </body>
 </html>

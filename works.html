@@ -5,18 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   
-  <!-- 1. 加载 Google Analytics (gtag.js) -->
+  <!-- 加载 GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FVZR9N23Z"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    // 配置你的 GA4 衡量 ID
     gtag('config', 'G-4FVZR9N23Z'); 
   </script>
 
   <style>
-    /* 隐藏所有内容，保持纯白背景 */
     html, body {
       margin: 0;
       padding: 0;
@@ -28,17 +26,31 @@
 </head>
 <body>
   <script>
-    // 2. 发送一个自定义事件，方便在 GA4 中单独追踪“跳转”行为
-    // 即使页面立即跳转，这个事件也会在浏览器卸载前发送出去
-    gtag('event', 'redirect_to_feishu', {
-      'event_category': 'engagement',
-      'event_label': 'Works Page Redirect'
-    });
+    (function() {
+      // 跳转目标 URL
+      var redirectUrl = "https://my.feishu.cn/wiki/WV8VwyiuWiu9bykEI4Tcwp0tnRh";
+      // 防止重复跳转的标志
+      var hasRedirected = false;
 
-    // 3. 延迟跳转，确保 GA4 请求发出
-    setTimeout(function() {
-      window.location.replace("https://my.feishu.cn/wiki/WV8VwyiuWiu9bykEI4Tcwp0tnRh");
-    }, 200); // 300ms 延迟，通常足够 GA4 脚本发出请求
+      // 跳转函数
+      function doRedirect() {
+        if (!hasRedirected) {
+          hasRedirected = true;
+          window.location.replace(redirectUrl);
+        }
+      }
+
+      // 发送 GA4 事件
+      gtag('event', 'redirect_to_feishu', {
+        'event_category': 'engagement',
+        'event_label': 'Works Page Redirect',
+        'transport_type': 'beacon', // 关键：使用 Beacon 传输
+        'event_callback': doRedirect // 关键：数据发送成功后再跳转
+      });
+
+      // 兜底方案：如果 GA4 脚本加载失败或长时间未回调，强制跳转
+      setTimeout(doRedirect, 1500); // 1.5秒超时兜底
+    })();
   </script>
 </body>
 </html>

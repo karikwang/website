@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <!-- 1. 初始化 Vercel Analytics 队列 -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <!-- 2. 加载 Vercel Analytics 脚本 -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    /* 隐藏所有内容，保持纯白背景（你可以改成 #0f1115 来匹配你的暗色主题） */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #ffffff; 
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // 3. 记录自定义事件（静默记录，用户无感知）
+    if (window.va) {
+      window.va('event', { name: 'redirect_to_feishu' });
+    }
+    
+    // 4. 稍微延迟后立即跳转，确保分析请求发出
+    setTimeout(function() {
+      window.location.replace("https://my.feishu.cn/wiki/WV8VwyiuWiu9bykEI4Tcwp0tnRh");
+    }, 200); // 200ms 极短延迟，用户几乎感觉不到停顿
+  </script>
+</body>
+</html>

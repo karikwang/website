@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
+  
+  <!-- Vercel Analytics 脚本 -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  
   <style>
+    /* 保持纯白背景，如果你想用深色，改成 #0f1115 */
     html, body {
       margin: 0;
       padding: 0;
@@ -14,42 +22,17 @@
     }
   </style>
 </head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4FVZR9N23Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4FVZR9N23Z');
-</script>
 <body>
   <script>
-    (function() {
-      // 跳转目标 URL
-      var redirectUrl = "https://my.feishu.cn/wiki/WV8VwyiuWiu9bykEI4Tcwp0tnRh";
-      // 防止重复跳转的标志
-      var hasRedirected = false;
-
-      // 跳转函数
-      function doRedirect() {
-        if (!hasRedirected) {
-          hasRedirected = true;
-          window.location.replace(redirectUrl);
-        }
-      }
-
-      // 发送 GA4 事件
-      gtag('event', 'redirect_to_feishu', {
-        'event_category': 'engagement',
-        'event_label': 'Works Page Redirect',
-        'transport_type': 'beacon', // 关键：使用 Beacon 传输
-        'event_callback': doRedirect // 关键：数据发送成功后再跳转
-      });
-
-      // 兜底方案：如果 GA4 脚本加载失败或长时间未回调，强制跳转
-      setTimeout(doRedirect, 1500); // 1.5秒超时兜底
-    })();
+    // 1. 记录自定义事件
+    if (window.va) {
+      window.va('event', { name: 'redirect_to_feishu' });
+    }
+    
+    // 2. 短暂延迟后跳转，确保请求发出
+    setTimeout(function() {
+      window.location.replace("https://my.feishu.cn/wiki/WV8VwyiuWiu9bykEI4Tcwp0tnRh");
+    }, 200); 
   </script>
 </body>
 </html>

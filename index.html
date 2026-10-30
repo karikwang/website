@@ -1,595 +1,313 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Karik Wang — Seeking entertainment is human nature. I create to deliver
-      it.
-    </title>
-    <meta
-      name="description"
-      content="Seeking entertainment is human nature. I create to deliver it. 寻求娱乐是人类的天性。我所做的，就是将它传递给观众。"
-    />
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-    <script>
-      if (typeof tailwind !== "undefined") {
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              fontFamily: {
-                sans: [
-                  "Inter",
-                  "-apple-system",
-                  "BlinkMacSystemFont",
-                  '"PingFang SC"',
-                  '"Microsoft YaHei"',
-                  "sans-serif",
-                ],
-                serif: [
-                  '"Cormorant Garamond"',
-                  "Georgia",
-                  '"Noto Serif SC"',
-                  '"Songti SC"',
-                  '"STSong"',
-                  "serif",
-                ],
-                cnSerif: [
-                  '"Songti SC"',
-                  '"Noto Serif SC"',
-                  '"STSong"',
-                  '"SimSun"',
-                  "serif",
-                ],
-              },
-            },
-          },
-        };
-      }
-    </script>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          "PingFang SC",
-          "Hiragino Sans GB",
-          "Microsoft YaHei",
-          sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        margin: 0;
-      }
-      .editorial-quote {
-        font-family:
-          "Cormorant Garamond", Georgia, "Times New Roman", "Songti SC", serif;
-      }
-      .cn-quote {
-        font-family:
-          "Songti SC", "Noto Serif SC", "STSong", "Source Han Serif SC",
-          Georgia, serif;
-      }
-      .ambient-glow {
-        background:
-          radial-gradient(
-            circle at 75% 30%,
-            rgba(212, 175, 55, 0.08),
-            transparent 55%
-          ),
-          radial-gradient(
-            circle at 20% 80%,
-            rgba(120, 119, 198, 0.06),
-            transparent 50%
-          );
-      }
-      .portrait-frame {
-        transition:
-          transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-          box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .portrait-frame:hover {
-        transform: translateY(-2px);
-      }
-      .nav-underline {
-        position: relative;
-      }
-      .nav-underline::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        width: 100%;
-        height: 1.5px;
-        background-color: currentColor;
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 0.3s ease;
-      }
-      .nav-underline:hover::after {
-        transform: scaleX(1);
-        transform-origin: left;
-      }
-    </style>
-  </head>
-  <body
-    class="min-h-screen flex flex-col bg-zinc-50 text-zinc-900 dark:bg-[#0b0b0d] dark:text-zinc-100 transition-colors duration-300 selection:bg-amber-500/20 selection:text-amber-500 relative overflow-x-hidden"
-  >
-    <!-- Subtle Background Ambient Light -->
-    <div class="fixed inset-0 pointer-events-none ambient-glow z-0"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karik Wang</title>
+  <meta name="description" content="Seeking entertainment is human nature. I create to deliver it. 寻求娱乐是人类的天性。我所做的，只是将它传递给更多人。" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    if (typeof tailwind !== 'undefined') {
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
+              serif: ['"Cormorant Garamond"', 'Georgia', '"Noto Serif SC"', '"Songti SC"', '"STSong"', 'serif'],
+              cnSerif: ['"Songti SC"', '"Noto Serif SC"', '"STSong"', '"SimSun"', 'serif'],
+            }
+          }
+        }
+      };
+    }
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+    }
+    .editorial-quote {
+      font-family: "Cormorant Garamond", Georgia, "Times New Roman", "Songti SC", serif;
+    }
+    .cn-quote {
+      font-family: "Songti SC", "Noto Serif SC", "STSong", "Source Han Serif SC", Georgia, serif;
+    }
+    .ambient-glow {
+      background: radial-gradient(circle at 75% 30%, rgba(212, 175, 55, 0.08), transparent 55%),
+                  radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.06), transparent 50%);
+    }
+    .portrait-frame {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .portrait-frame:hover {
+      transform: translateY(-2px);
+    }
+    .nav-underline {
+      position: relative;
+    }
+    .nav-underline::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 1.5px;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    .nav-underline:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-zinc-50 text-zinc-900 dark:bg-[#0b0b0d] dark:text-zinc-100 transition-colors duration-300 selection:bg-amber-500/20 selection:text-amber-500 relative overflow-x-hidden">
 
-    <!-- Top Navigation Bar -->
-    <header
-      class="relative z-20 w-full border-b border-zinc-200/70 dark:border-zinc-800/70 backdrop-blur-md bg-zinc-50/80 dark:bg-[#0b0b0d]/80"
-    >
-      <div
-        class="max-w-6xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between"
-      >
-        <!-- Brand / Domain Identity -->
+  <!-- Subtle Background Ambient Light -->
+  <div class="fixed inset-0 pointer-events-none ambient-glow z-0"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="relative z-20 w-full border-b border-zinc-200/70 dark:border-zinc-800/70 backdrop-blur-md bg-zinc-50/80 dark:bg-[#0b0b0d]/80">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
+      <!-- Brand / Domain Identity -->
+      <a href="https://karik.wang" target="_top" class="group flex items-center gap-3 text-left focus:outline-none" aria-label="karik.wang">
+        <span class="w-2 h-2 rounded-full bg-amber-600 dark:bg-amber-400 transition-transform duration-300 group-hover:scale-125"></span>
+        <span class="text-base sm:text-lg font-medium tracking-widest uppercase">KARIK.WANG</span>
+      </a>
+
+      <!-- Navigation Links: Direct redirect to https://karik.wang/works -->
+      <nav class="flex items-center gap-6 sm:gap-8" aria-label="Main Navigation">
         <a
-          href="https://karik.wang"
+          href="https://karik.wang/works"
           target="_top"
-          class="group flex items-center gap-3 text-left focus:outline-none"
-          aria-label="karik.wang"
+          class="nav-underline inline-flex items-center gap-1.5 text-sm font-medium tracking-wider uppercase text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-colors"
         >
-          <span
-            class="w-2 h-2 rounded-full bg-amber-600 dark:bg-amber-400 transition-transform duration-300 group-hover:scale-125"
-          ></span>
-          <span
-            class="text-base sm:text-lg font-medium tracking-widest uppercase"
-            >KARIK.WANG</span
-          >
+          <span>Works</span>
+          <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7V16"></path>
+          </svg>
         </a>
 
-        <!-- Navigation Links: Direct redirect to https://karik.wang/works -->
-        <nav
-          class="flex items-center gap-6 sm:gap-8"
-          aria-label="Main Navigation"
-        >
-          <a
-            href="https://karik.wang/works"
-            target="_top"
-            class="nav-underline inline-flex items-center gap-1.5 text-sm font-medium tracking-wider uppercase text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-colors"
-          >
-            <span>Works</span>
-            <svg
-              class="w-3.5 h-3.5 opacity-70"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M7 17L17 7M17 7H8M17 7V16"
-              ></path>
-            </svg>
-          </a>
+        <div class="h-4 w-px bg-zinc-300 dark:bg-zinc-800"></div>
 
-          <div class="h-4 w-px bg-zinc-300 dark:bg-zinc-800"></div>
+        <!-- Theme Switcher -->
+        <button id="themeToggleBtn" type="button" class="p-2 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" title="切换深浅色模式 (Toggle Theme)" aria-label="Toggle color theme">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg id="sunIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"></path>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg id="moonIcon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-          <!-- Theme Switcher -->
-          <button
-            id="themeToggleBtn"
-            type="button"
-            class="p-2 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
-            title="切换深浅色模式 (Toggle Theme)"
-            aria-label="Toggle color theme"
-          >
-            <!-- Sun Icon (shown in dark mode) -->
-            <svg
-              id="sunIcon"
-              class="w-4 h-4 hidden dark:block"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              viewBox="0 0 24 24"
-            >
-              <circle cx="12" cy="12" r="4"></circle>
-              <path
-                stroke-linecap="round"
-                d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"
-              ></path>
-            </svg>
-            <!-- Moon Icon (shown in light mode) -->
-            <svg
-              id="moonIcon"
-              class="w-4 h-4 block dark:hidden"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
-              ></path>
-            </svg>
-          </button>
-        </nav>
-      </div>
-    </header>
+  <!-- Main Content Container -->
+  <main class="relative z-10 flex-1 flex items-center justify-center px-6 sm:px-10 py-12 sm:py-20">
+    
+    <!-- LANDING PAGE (karik.wang) -->
+    <section id="homeView" class="w-full max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left / Primary Column: Manifesto & Copywriting (7 cols on desktop) -->
+        <div class="lg:col-span-7 order-2 lg:order-1 space-y-8 sm:space-y-10">
+          
+          <!-- English & Chinese Copy -->
+          <div class="space-y-6">
+            <h1 class="editorial-quote text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.14] text-zinc-900 dark:text-zinc-50">
+              Seeking entertainment is human nature. <span class="italic font-normal text-amber-700 dark:text-amber-300/90">I create to deliver it.</span>
+            </h1>
 
-    <!-- Main Content Container -->
-    <main
-      class="relative z-10 flex-1 flex items-center justify-center px-6 sm:px-10 py-12 sm:py-20"
-    >
-      <!-- LANDING PAGE (karik.wang) -->
-      <section id="homeView" class="w-full max-w-6xl mx-auto">
-        <div
-          class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
-        >
-          <!-- Left / Primary Column: Manifesto & Copywriting (7 cols on desktop) -->
-          <div class="lg:col-span-7 order-2 lg:order-1 space-y-8 sm:space-y-10">
-            <!-- English & Chinese Copy -->
-            <div class="space-y-6">
-              <h1
-                class="editorial-quote text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.14] text-zinc-900 dark:text-zinc-50"
-              >
-                Seeking entertainment is human nature.
-                <span
-                  class="italic font-normal text-amber-700 dark:text-amber-300/90"
-                  >I create to deliver it.</span
-                >
-              </h1>
+            <!-- Divider Accent -->
+            <div class="w-16 h-px bg-amber-600/60 dark:bg-amber-400/50"></div>
 
-              <!-- Divider Accent -->
-              <div class="w-16 h-px bg-amber-600/60 dark:bg-amber-400/50"></div>
-
-              <!-- Chinese Copy -->
-              <p
-                class="cn-quote text-xl sm:text-2xl lg:text-[26px] font-normal leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300"
-              >
-                寻求娱乐是人类的天性。<br
-                  class="hidden sm:inline"
-                />我所做的，就是将它传递给观众。
-              </p>
-            </div>
-
-            <!-- Action Row: Direct link to https://karik.wang/works -->
-            <div class="pt-2 flex flex-wrap items-center gap-4 sm:gap-6">
-              <a
-                href="https://karik.wang/works"
-                target="_top"
-                class="group inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-sm font-medium tracking-wider uppercase hover:bg-zinc-800 dark:hover:bg-white transition-all shadow-sm"
-              >
-                <span>Works</span>
-                <span class="text-xs font-mono opacity-70"
-                  >karik.wang/works</span
-                >
-                <svg
-                  class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  ></path>
-                </svg>
-              </a>
-
-            </div>
+            <!-- Chinese Copy -->
+            <p class="cn-quote text-xl sm:text-2xl lg:text-[26px] font-normal leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300">
+              寻求娱乐是人类的天性。<br class="hidden sm:inline" />我所做的，只是将它传递给更多人。
+            </p>
           </div>
 
-          <!-- Right Column: Personal Headshot Slot (5 cols on desktop) -->
-          <div
-            class="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center lg:items-end"
-          >
-            <div class="w-full max-w-sm sm:max-w-md relative">
-              <!-- Decorative Offset Border -->
-              <div
-                class="absolute -inset-2.5 rounded-2xl border border-zinc-300/60 dark:border-zinc-800/80 pointer-events-none"
-              ></div>
+          <!-- Action Row: Direct link to https://karik.wang/works -->
+          <div class="pt-2 flex flex-wrap items-center gap-4 sm:gap-6">
+            <a
+              href="https://karik.wang/works"
+              target="_top"
+              class="group inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-sm font-medium tracking-wider uppercase hover:bg-zinc-800 dark:hover:bg-white transition-all shadow-sm"
+            >
+              <span>Works</span>
+              <span class="text-xs font-mono opacity-70">karik.wang/works</span>
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-              <!-- Portrait Container -->
-              <!-- =========================================================================
-                 [正式部署替换说明 / HOW TO ADD YOUR HEADSHOT]:
-                 将个人大头照（如 portrait.jpg）放入仓库根目录后，
-                 取消下方 <img id="userPortraitImg"> 的 hidden 类，并将 src 改为 "/portrait.jpg"，
-                 同时删除或隐藏 <div id="portraitPlaceholder"> 即可。
-                 ========================================================================= -->
-              <div
-                id="portraitCard"
-                class="portrait-frame relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-zinc-200/70 dark:bg-zinc-900/90 border border-zinc-300 dark:border-zinc-800 shadow-2xl flex flex-col justify-between"
-              >
-                <!-- Image Element (Hidden until user previews a photo or sets src in code) -->
-                <img
-                  id="userPortraitImg"
-                  src="/2-inch.jpg"
-                  alt="Karik Wang Portrait"
-                  class="w-full h-full object-cover object-center max-w-full"
-                />
-                  <!-- Subtle grid lines inside portrait frame -->
-                  <div
-                    class="absolute inset-6 border border-dashed border-zinc-400/40 dark:border-zinc-700/50 rounded-lg pointer-events-none"
-                  ></div>
+        <!-- Right Column: Personal Headshot (/2-inch.jpg) (5 cols on desktop) -->
+        <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center lg:items-end">
+          <div class="w-full max-w-xs sm:max-w-sm relative">
+            
+            <!-- Decorative Offset Border -->
+            <div class="absolute -inset-2.5 rounded-2xl border border-zinc-300/60 dark:border-zinc-800/80 pointer-events-none"></div>
 
-                  <!-- Minimalist Editorial Portrait Silhouette SVG -->
-                  <div
-                    class="w-24 h-24 rounded-full border border-zinc-400/50 dark:border-zinc-700 flex items-center justify-center mb-5 bg-zinc-100/60 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400"
-                  >
-                    <svg
-                      class="w-11 h-11"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                      ></path>
-                    </svg>
-                  </div>
+            <!-- Portrait Container -->
+            <div id="portraitCard" class="portrait-frame relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-zinc-200/70 dark:bg-zinc-900/90 border border-zinc-300 dark:border-zinc-800 shadow-2xl flex flex-col">
+              
+              <!-- Production Headshot Image (/2-inch.jpg) -->
+              <img
+                id="userPortraitImg"
+                src="https://karik.wang/2-inch.jpg"
+                alt="Karik Wang"
+                class="w-full h-full object-cover object-top max-w-full"
+              />
 
-                  <p
-                    class="text-xs font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-1"
-                  >
-                    Portrait Placeholder
-                  </p>
-                  <p
-                    class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-4"
-                  >
-                    个人大头照预留区域
-                  </p>
-                  <p
-                    class="text-xs text-zinc-500 dark:text-zinc-500 max-w-[220px] leading-relaxed mb-6"
-                  >
-                    建议比例 4:5 或 1:1 高清人像。<br />点击下方按钮可先在浏览器内上传预览效果。
-                  </p>
-
-                  <!-- Interactive Local Photo Preview Trigger -->
-                  <label
-                    for="portraitUploadInput"
-                    class="cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/90 dark:bg-zinc-100/90 text-zinc-50 dark:text-zinc-900 text-xs font-medium tracking-wide hover:opacity-90 transition-opacity shadow"
-                  >
-                    <svg
-                      class="w-3.5 h-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                      ></path>
-                    </svg>
-                    <span>本地选择照片预览</span>
-                  </label>
-                  <input
-                    id="portraitUploadInput"
-                    type="file"
-                    accept="image/*"
-                    class="hidden"
-                  />
+              <!-- Fallback shown only if /2-inch.jpg cannot be resolved in the local sandbox preview -->
+              <div id="portraitFallback" class="hidden flex-1 flex-col items-center justify-center p-8 text-center select-none relative">
+                <div class="w-20 h-20 rounded-full border border-zinc-400/50 dark:border-zinc-700 flex items-center justify-center mb-4 bg-zinc-100/60 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400">
+                  <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+                  </svg>
                 </div>
-
-                <!-- Bottom Caption Bar inside Frame -->
-                <div
-                  class="relative z-10 px-5 py-3.5 bg-white/85 dark:bg-zinc-950/85 backdrop-blur-md border-t border-zinc-200/80 dark:border-zinc-800/80 flex items-center justify-between"
-                >
-                  <div>
-                    <div
-                      class="text-xs font-semibold tracking-wider uppercase text-zinc-900 dark:text-zinc-100"
-                    >
-                      Karik Wang
-                    </div>
-                    <div
-                      class="text-[11px] text-zinc-500 dark:text-zinc-400 font-mono"
-                    >
-                      karik.wang
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <button
-                      id="resetPortraitBtn"
-                      type="button"
-                      class="hidden text-[11px] font-mono text-amber-600 dark:text-amber-400 hover:underline"
-                    >
-                      重置占位
-                    </button>
-                    <button
-                      id="aspectRatioBtn"
-                      type="button"
-                      class="text-[11px] font-mono px-2 py-1 rounded border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-                      title="切换相框比例"
-                    >
-                      4:5 竖版
-                    </button>
-                  </div>
-                </div>
+                <p class="text-xs font-mono text-zinc-600 dark:text-zinc-300 mb-1">
+                  /2-inch.jpg
+                </p>
+                <p class="text-xs text-zinc-500 dark:text-zinc-500 max-w-[200px] leading-relaxed">
+                  已指向仓库根目录的 <code class="font-mono">/2-inch.jpg</code>，部署上线后将直接展示照片。
+                </p>
               </div>
+
             </div>
           </div>
         </div>
-      </section>
-    </main>
 
-    <!-- Minimalist Footer -->
-    <footer
-      class="relative z-10 w-full border-t border-zinc-200/60 dark:border-zinc-900 py-6 px-6 sm:px-10 text-xs text-zinc-500 dark:text-zinc-500"
-    >
-      <div
-        class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4"
-      >
-        <div>
-          &copy; <span id="currentYear">2026</span> Karik Wang (<span
-            class="font-mono"
-            >karik.wang</span
-          >). All rights reserved.
-        </div>
-        <div class="flex items-center gap-5 text-zinc-500 dark:text-zinc-500">
-          <!-- Instagram Monochrome Line Icon -->
-          <a
-            href="https://www.instagram.com/karik20252/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            title="Instagram (@karik20252)"
-            class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-            </svg>
-          </a>
-
-          <!-- LinkedIn Monochrome Line Icon -->
-          <a
-            href="https://www.linkedin.com/in/karik-wang-6bb6b9389/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            title="LinkedIn (Karik Wang)"
-            class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-              ></path>
-              <rect width="4" height="12" x="2" y="9"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-
-          <!-- Email Monochrome Line Icon -->
-          <a
-            href="mailto:karikwang@protonmail.com"
-            aria-label="Email"
-            title="karikwang@protonmail.com"
-            class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
-          </a>
-        </div>
       </div>
-    </footer>
+    </section>
 
-    <script>
-      (function () {
-        const htmlEl = document.documentElement;
-        const themeToggleBtn = document.getElementById("themeToggleBtn");
+  </main>
 
-        const portraitUploadInput = document.getElementById(
-          "portraitUploadInput",
-        );
-        const userPortraitImg = document.getElementById("userPortraitImg");
-        const portraitPlaceholder = document.getElementById(
-          "portraitPlaceholder",
-        );
-        const resetPortraitBtn = document.getElementById("resetPortraitBtn");
-        const aspectRatioBtn = document.getElementById("aspectRatioBtn");
-        const portraitCard = document.getElementById("portraitCard");
+  <!-- Minimalist Footer -->
+  <footer class="relative z-10 w-full border-t border-zinc-200/60 dark:border-zinc-900 py-6 px-6 sm:px-10 text-xs text-zinc-500 dark:text-zinc-500">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        &copy; <span id="currentYear">2026</span> Karik Wang (<span class="font-mono">karik.wang</span>). All rights reserved.
+      </div>
+      <div class="flex items-center gap-5 text-zinc-500 dark:text-zinc-500">
+        <!-- Instagram Monochrome Line Icon -->
+        <a
+          href="https://www.instagram.com/karik20252/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          title="Instagram (@karik20252)"
+          class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
 
-        // Set current year
-        const yearEl = document.getElementById("currentYear");
-        if (yearEl) {
-          yearEl.textContent = String(new Date().getFullYear());
+        <!-- LinkedIn Monochrome Line Icon -->
+        <a
+          href="https://www.linkedin.com/in/karik-wang-6bb6b9389/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          title="LinkedIn (Karik Wang)"
+          class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect width="4" height="12" x="2" y="9"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+
+        <!-- Email Monochrome Line Icon -->
+        <a
+          href="mailto:karikwang@protonmail.com"
+          aria-label="Email"
+          title="karikwang@protonmail.com"
+          class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const htmlEl = document.documentElement;
+      const themeToggleBtn = document.getElementById('themeToggleBtn');
+      const userPortraitImg = document.getElementById('userPortraitImg');
+      const portraitFallback = document.getElementById('portraitFallback');
+
+      // Set current year
+      const yearEl = document.getElementById('currentYear');
+      if (yearEl) {
+        yearEl.textContent = String(new Date().getFullYear());
+      }
+
+      // Theme Persistence (wrapped in try/catch for sandbox safety)
+      try {
+        const savedTheme = localStorage.getItem('karik_theme');
+        if (savedTheme === 'light') {
+          htmlEl.classList.remove('dark');
+        } else if (savedTheme === 'dark') {
+          htmlEl.classList.add('dark');
         }
+      } catch (e) {
+        // Ignore storage errors
+      }
 
-        // Theme Persistence (wrapped in try/catch for sandbox safety)
+      themeToggleBtn.addEventListener('click', function () {
+        const isDark = htmlEl.classList.toggle('dark');
         try {
-          const savedTheme = localStorage.getItem("karik_theme");
-          if (savedTheme === "light") {
-            htmlEl.classList.remove("dark");
-          } else if (savedTheme === "dark") {
-            htmlEl.classList.add("dark");
-          }
+          localStorage.setItem('karik_theme', isDark ? 'dark' : 'light');
         } catch (e) {
           // Ignore storage errors
         }
+      });
 
-        themeToggleBtn.addEventListener("click", function () {
-          const isDark = htmlEl.classList.toggle("dark");
-          try {
-            localStorage.setItem("karik_theme", isDark ? "dark" : "light");
-          } catch (e) {
-            // Ignore storage errors
-          }
-        });
+      // Resolve '/2-inch.jpg' relative to current origin first, with fallback to https://karik.wang/2-inch.jpg
+      let triedAbsolute = false;
+      userPortraitImg.addEventListener('error', function () {
+        if (!triedAbsolute) {
+          triedAbsolute = true;
+          userPortraitImg.src = 'https://karik.wang/2-inch.jpg';
+        } else {
+          userPortraitImg.classList.add('hidden');
+          portraitFallback.classList.remove('hidden');
+          portraitFallback.classList.add('flex');
+        }
+      });
 
-        // Local Headshot Upload Preview
-        portraitUploadInput.addEventListener("change", function (e) {
-          const file = e.target.files && e.target.files[0];
-          if (!file) return;
-          const reader = new FileReader();
-          reader.onload = function (evt) {
-            if (evt.target && evt.target.result) {
-              userPortraitImg.src = evt.target.result;
-              userPortraitImg.classList.remove("hidden");
-              portraitPlaceholder.classList.add("hidden");
-              resetPortraitBtn.classList.remove("hidden");
-            }
-          };
-          reader.readAsDataURL(file);
-        });
+      userPortraitImg.addEventListener('load', function () {
+        userPortraitImg.classList.remove('hidden');
+        portraitFallback.classList.add('hidden');
+        portraitFallback.classList.remove('flex');
+      });
 
-        resetPortraitBtn.addEventListener("click", function () {
-          userPortraitImg.src =
-            "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-          userPortraitImg.classList.add("hidden");
-          portraitPlaceholder.classList.remove("hidden");
-          resetPortraitBtn.classList.add("hidden");
-          portraitUploadInput.value = "";
-        });
-
-        // Portrait Aspect Ratio Toggle (4:5 vs 1:1)
-        let isSquare = false;
-        aspectRatioBtn.addEventListener("click", function () {
-          isSquare = !isSquare;
-          if (isSquare) {
-            portraitCard.classList.remove("aspect-[4/5]");
-            portraitCard.classList.add("aspect-square");
-            aspectRatioBtn.textContent = "1:1 方版";
-          } else {
-            portraitCard.classList.remove("aspect-square");
-            portraitCard.classList.add("aspect-[4/5]");
-            aspectRatioBtn.textContent = "4:5 竖版";
-          }
-        });
-
-      })();
-    </script>
-  </body>
+      // Trigger relative path load on deployed host
+      userPortraitImg.src = '/2-inch.jpg';
+    })();
+  </script>
+</body>
 </html>

@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="dark">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karik Wang</title>
   <meta name="description" content="Seeking entertainment is human nature. I create to deliver it. 寻求娱乐是人类的天性。我所做的，只是将它传递给更多人。" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('karik_theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (saved === 'dark' || (!saved && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      }
+    })();
+  </script>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script>
     if (typeof tailwind !== 'undefined') {
@@ -265,22 +282,42 @@
         yearEl.textContent = String(new Date().getFullYear());
       }
 
-      // Theme Persistence (wrapped in try/catch for sandbox safety)
-      try {
-        const savedTheme = localStorage.getItem('karik_theme');
-        if (savedTheme === 'light') {
-          htmlEl.classList.remove('dark');
-        } else if (savedTheme === 'dark') {
+      // Automatic Browser/OS Theme Sync + Manual Toggle Support
+      const darkMediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
+      function applySystemTheme(isDark) {
+        if (isDark) {
           htmlEl.classList.add('dark');
+        } else {
+          htmlEl.classList.remove('dark');
         }
-      } catch (e) {
-        // Ignore storage errors
+      }
+
+      // Listen for real-time OS/browser dark mode changes
+      if (darkMediaQuery) {
+        const handleSystemThemeChange = function (e) {
+          try {
+            // Follow system change automatically (and clear any stale manual override)
+            localStorage.removeItem('karik_theme');
+          } catch (err) {}
+          applySystemTheme(e.matches);
+        };
+        if (darkMediaQuery.addEventListener) {
+          darkMediaQuery.addEventListener('change', handleSystemThemeChange);
+        } else if (darkMediaQuery.addListener) {
+          darkMediaQuery.addListener(handleSystemThemeChange);
+        }
       }
 
       themeToggleBtn.addEventListener('click', function () {
         const isDark = htmlEl.classList.toggle('dark');
         try {
-          localStorage.setItem('karik_theme', isDark ? 'dark' : 'light');
+          const systemDark = darkMediaQuery ? darkMediaQuery.matches : false;
+          if (isDark === systemDark) {
+            localStorage.removeItem('karik_theme');
+          } else {
+            localStorage.setItem('karik_theme', isDark ? 'dark' : 'light');
+          }
         } catch (e) {
           // Ignore storage errors
         }

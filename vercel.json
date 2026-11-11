@@ -3,6 +3,11 @@
     {
       "source": "/works",
       "destination": "/works.html"
+    },
+    {
+      "source": "/radar",
+      "destination": "/radar.html"
     }
   ]
 }
+
